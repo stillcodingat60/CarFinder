@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="assets/img/favicon.ico">-->
+
+    <title>CarFinder Web Service App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/trNgGrid.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/ionicons.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="h2">
+        <div class="logo">
+            <a href="http://jmcconnell.azurewebsites.net/"><h2>JMM</h2></a>
+        </div><!--/logo-->
+
+        <div class="container centered">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h5>CAR FINDER PROJECT - 2016</h5>
+                    <h1>Database <b>Car Finder</b> Driven </h1>
+                    <p><h2>Utilizing SQL Server Stored Procs, AngularJS, Bootstrap and, featuring our own Web Service supporting this application.</h2></p>
+                </div>
+            </div><!--/row-->
+        </div><!--/container-->
+    </div><!--H-->
+
+    <div class="container centered" ng-app="jmmApp">
+        <div class="row">
+            <div class="col-md-12 centered" id="carlist" ng-controller="carFinderCntl as cf">
+                <p>The Car Finder aplication can retrieve a photograph and recall info about a specific car in the database.</p>
+                <select ng-options="y for y in cf.years" ng-model="cf.selected.year" ng-change="cf.getMakes()"> {{y}} </select>
+                <select ng-options="mak for mak in cf.makes" ng-model="cf.selected.make" ng-change="cf.getModels()"> {{mak}} </select>
+                <select ng-options="mod for mod in cf.models" ng-model="cf.selected.model" ng-change="cf.getTrims()"> {{mod}} </select>
+                <select ng-options="t for t in cf.trims" ng-model="cf.selected.trim" ng-change="cf.getTrims()"> {{t}} </select>
+                <br />
+                <br />
+                Year: {{cf.selected.year}} <br />
+                Make: {{cf.selected.make}} <br />
+                Model: {{cf.selected.model}} <br />
+                Trim: {{cf.selected.trim}} <br />
+                <table tr-ng-grid="" items="cf.cars" page-items="25">
+                    <thead>
+                        <tr>
+                            <th field-name="id" display-name="Record ID"></th>
+                            <th field-name="model_year" display-name="Model Year"></th>
+                            <th field-name="make" display-name="Make"></th>
+                            <th field-name="model_name" display-name="Model Name"></th>
+                            <th field-name="model_trim" display-name="Model Trim"></th>
+                            <th field-name="body_style" display-name="Body Style"></th>
+                            <th field-name="engine_cc" display-name="Engine CCs"></th>
+                            <th field-name="top_speed_kph" display-name="Top Speed (kph)"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><button ng-click="cf.open(gridItem.id)">view</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Car Modal -->
+                <script type="text/ng-template" id="carModal.html">
+                    <div class="modal-header">
+                        <h3 class="modal-title">
+                            {{cm.car.car.make}}<br />
+                            {{cm.car.car.model_year}}<br />
+                            {{cm.car.car.model_name}}<br />
+                            <button class="pull-right btn btn-default" ng-click="cm.cancel()">X</button>
+                        </h3>
+                    </div>
+                    <div class="modal-body">
+                        <uib-tabset>
+                            <uib-tab heading="Car Image">
+                                <img class="modalimage" ng-src="{{cm.car.image}}" alt="{{cm.car.car.model_name}}" />
+                            </uib-tab>
+                            <uib-tab heading="Recall Data">
+                                {{cm.car.recalls}}
+                            </uib-tab>
+                        </uib-tabset>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" ng-click="cm.ok()">OK</button>
+                        <button class="btn btn-warning" ng-click="cm.cancel()">Cancel</button>
+                    </div>
+                </script>
+            </div>
+        </div><!--/row-->
+        <div class="row centered">
+            <!--Car: {{cf.cars}}  this would dump all the selected to the screen w/out formatting -->
+        </div>
+    </div>
+        <div class="container ptb">
+            <div class="row">
+                <h2 class="centered mb">Project Description & Results.</h2>
+                <div class="col-md-4">
+                    <h5><b>THE CLIENT</b></h5>
+                    <p>Coder Foundry wanted a database driven "car finder" web app, able to draw on the National Highway Traffic Safety Administration's, Office of Defects Investigation, Recall database.</p>
+                </div><!--/col-md-4-->
+                <div class="col-md-4">
+                    <h5><b>THE PROPOSAL</b></h5>
+                    <p>The proposed "Car Finder" web api was based upon a SQL Server database of 60k records that the customer maintains. Updates, deletions, and additions to this database were not part of the scope of this sub-system. </p>
+                </div><!--/col-md-4-->
+                <div class="col-md-4">
+                    <h5><b>THE RESULTS</b></h5>
+                    <p>By adding a few indices to speed up the process, the result is compliant, quick, and what the customer wanted. </p>
+                </div><!--/col-md-4-->
+            </div><!--/row-->
+        </div><!-- /.container -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 centered">
+                    <img src="assets/img/CF.png" width="200" alt="">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2><b>60.000</b></h2>
+                            <h6>ROWS IN THE DB</h6>
+                        </div><!--/col-sm-4-->
+                        <div class="col-sm-4">
+                            <h2><b>37</b></h2>
+                            <h6>COLUMNS</h6>
+                        </div><!--/col-sm-4-->
+                        <div class="col-sm-4">
+                            <h2><b>2</b></h2>
+                            <h6>INDICIES</h6>
+                        </div><!--/col-sm-4-->
+                    </div><!--/.row-->
+                </div><!--/col-md-10-->
+            </div><!--/row-->
+
+            <div class="row mt">
+                <div class="col-md-8 col-md-offset-2">
+                    <img src="assets/img/portfolio/portfolio_07.jpg" class="img-responsive aligncenter" alt="">
+                </div>
+            </div><!--/.row-->
+
+        </div><!--/.container-->
+
+        <div id="g">
+            <div class="container">
+                <div class="row centered">
+                    <h2>Robert - Coder Foundry CEO.</h2>
+                    <div class="col-md-8 col-md-offset-2">
+                        <p>Working with Jamie was a breeze. He understood what we wanted, worked within our practice guidelines and delivery was quick - complete with API documentation for those who follow!.</p>
+
+                    </div><!--/col-md-8-->
+                </div><!--/row-->
+            </div><!--/.container-->
+        </div>
+
+        <div id="f">
+            <div class="container">
+                <div class="row centered">
+                    <div class="col-md-8 col-md-offset-2">
+                        <a href="#"><i class="ion-social-twitter"></i></a>
+                        <a href="#"><i class="ion-social-dribbble"></i></a>
+                        <a href="#"><i class="ion-social-instagram"></i></a>
+                        <a href="#"><i class="ion-social-facebook"></i></a>
+                    </div><!--/col-md-8-->
+                </div>
+            </div><!--/container-->
+        </div><!--/.F-->
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!--<script src="assets/js/retina-1.1.0.js"></script>-->
+
+        <script src="Scripts/angular.min.js"></script>
+        <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+        <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+        <script src="Scripts/trNgGrid.min.js"></script>
+        <script src="jmm/app.js"></script>
+        <script src="jmm/carFinderCntl.js"></script>
+
+        <script src="jmm/carSvc.js"></script>
+
+</body>
+</html>

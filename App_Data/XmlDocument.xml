@@ -481,7 +481,7 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:CarFinder.Controllers.CarController.GetAllYears">
+        <member name="M:CarFinder.Controllers.CarController.GetAllYears(CarFinder.Controllers.CarController.Selected)">
             <summary>
             GetAllYears returns DISTINCT values related to the CarFinder dataset
             </summary>
@@ -492,7 +492,7 @@
             </returns>
             
         </member>
-        <member name="M:CarFinder.Controllers.CarController.GetMakesbyYear(System.String)">
+        <member name="M:CarFinder.Controllers.CarController.GetMakesbyYear(CarFinder.Controllers.CarController.Selected)">
             <summary>
             Get Makes By Year, return the entire class Car
             </summary>
@@ -501,7 +501,7 @@
             Get all makes for a particular car make by model year. takes a single param, string year.
             </returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetTrimsbyYMM(System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetTrims(CarFinder.Controllers.CarController.Selected)" -->
         <member name="M:CarFinder.Controllers.CarController.GetCarsbyYear(System.String)">
             <summary>
             Get Cars by Year
@@ -522,8 +522,7 @@
             </returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetCarsbyYMM(System.String,System.String,System.String)" -->
-        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetCarsbyYMMT(System.String,System.String,System.String,System.String)" -->
-        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.getCarsbyYearMakeModelTrim(System.String,System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.getCars(CarFinder.Controllers.CarController.Selected)" -->
         <member name="M:Bing.BingSearchContainer.Composite(System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             </summary>
