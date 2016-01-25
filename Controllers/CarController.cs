@@ -31,9 +31,7 @@ namespace CarFinder.Controllers
 
         public class RecallClass
         {
-            public string count { get; set; }
-            public string message { get; set; }
-            public Array results { get; set; }
+            public string results { get; set; }
         }
         /// <summary>
         /// GetAllYears returns DISTINCT values related to the CarFinder dataset
@@ -200,7 +198,7 @@ namespace CarFinder.Controllers
              var Car = db.Cars.Find(Id.id);
              var jmm1 = "";
              var jmm2 = "";
-             var jmm3 = new RecallClass();
+             //var jmm3 = new RecallClass();
              var Image = "";
              using (var client = new HttpClient())
              {
@@ -219,7 +217,7 @@ namespace CarFinder.Controllers
              }
 
              dynamic Recalls = JsonConvert.DeserializeObject(content);
-             jmm3 = Recalls;
+             //string jmm3 = Recalls;
              //jmm1 = jmm3.IndexOf("Count:");
              //jmm2 = jmm3.Substring(10, 1);
              //Console.WriteLine("indexof Count: and substring 9,1");

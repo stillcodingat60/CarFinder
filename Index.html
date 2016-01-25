@@ -29,14 +29,30 @@
     <![endif]-->
 </head>
 
-<body>
-
+<body id="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <ul class="nav nav-pills">
+                    <li role="presentation"><a href="#home">Home</a></li>
+                    <li role="presentation" ><a href="http://jmcconnell.azurewebsites.net/">Professional Website</a></li>
+                    <li role="presentation"><a href="#ptb">Car Finder App</a></li>
+                    <li role="presentation"><a href="#pdr">Project Description</a></li>
+                    <li role="presentation"><a href="/help">Project Documentation</a></li>
+                </ul>  
+            </div>
+        </div>
+    </nav>
     <div id="h2">
-        <div class="logo">
-            <a href="http://jmcconnell.azurewebsites.net/"><h2>JMM</h2></a>
-        </div><!--/logo-->
-
         <div class="container centered">
+        <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <h5>CAR FINDER PROJECT - 2016</h5>
@@ -47,7 +63,8 @@
         </div><!--/container-->
     </div><!--H-->
 
-    <div class="container centered" ng-app="jmmApp">
+    <div class="container ptb centered" id="ptb" ng-app="jmmApp">
+        <h1 class="centered mb">CAR FINDER APP</h1>
         <div class="row">
             <div class="col-md-12 centered" id="carlist" ng-controller="carFinderCntl as cf">
                 <p>The Car Finder aplication can retrieve a photograph and recall info about a specific car in the database.</p>
@@ -64,14 +81,14 @@
                 <table tr-ng-grid="" items="cf.cars" page-items="25">
                     <thead>
                         <tr>
-                            <th field-name="id" display-name="Record ID"></th>
-                            <th field-name="model_year" display-name="Model Year"></th>
-                            <th field-name="make" display-name="Make"></th>
-                            <th field-name="model_name" display-name="Model Name"></th>
-                            <th field-name="model_trim" display-name="Model Trim"></th>
-                            <th field-name="body_style" display-name="Body Style"></th>
-                            <th field-name="engine_cc" display-name="Engine CCs"></th>
-                            <th field-name="top_speed_kph" display-name="Top Speed (kph)"></th>
+                            <th field-name="id" display-name="Record ID" enable-filtering="false" enable-sorting="false" display-align="center"></th>
+                            <th field-name="model_year" display-name="Model Year" enable-filtering="false" enable-sorting="true" display-align="center"></th>
+                            <th field-name="make" display-name="Make" enable-filtering="false" enable-sorting="true" display-align="center"></th>
+                            <th field-name="model_name" display-name="Model Name" enable-filtering="false" enable-sorting="false" display-align="center"></th>
+                            <th field-name="model_trim" display-name="Model Trim" enable-filtering="false" enable-sorting="false" display-align="center"></th>
+                            <th field-name="body_style" display-name="Body Style" enable-filtering="false" enable-sorting="false" display-align="center"></th>
+                            <th field-name="engine_cc" display-name="Engine CCs" enable-filtering="false" enable-sorting="false" display-align="center"></th>
+                            <th field-name="top_speed_kph" display-name="Top Speed (kph)" enable-filtering="false" enable-sorting="false" display-align="center"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,16 +104,27 @@
                             {{cm.car.car.make}}<br />
                             {{cm.car.car.model_year}}<br />
                             {{cm.car.car.model_name}}<br />
-                            <button class="pull-right btn btn-default" ng-click="cm.cancel()">X</button>
                         </h3>
+                        <button class="pull-right btn btn-default" ng-click="cm.cancel()">X</button>
                     </div>
                     <div class="modal-body">
+
                         <uib-tabset>
                             <uib-tab heading="Car Image">
                                 <img class="modalimage" ng-src="{{cm.car.image}}" alt="{{cm.car.car.model_name}}" />
+
                             </uib-tab>
-                            <uib-tab heading="Recall Data">
-                                {{cm.car.recalls}}
+                            <uib-tab heading="Recalls {{cm.car.recalls.Count}}">
+
+                                <uib-tab heading="Recall Data" ng-repeat="fy in cm.results">
+
+                                    <p>Problem/Component: {{fy.Component}}</p>
+                                    <p>Date of Report (yyyy/mm/dd):  {{fy.ReportReceivedDate | date : 'yyyy/MM/dd'}}</p>
+                                    <p>Summary: {{fy.Summary}}</p>
+                                    <p>Consequence: {{fy.Conequence}}</p>
+                                    <p>Notes: {{fy.Notes}}</p>
+
+                                </uib-tab>
                             </uib-tab>
                         </uib-tabset>
                     </div>
@@ -110,8 +138,8 @@
         <div class="row centered">
             <!--Car: {{cf.cars}}  this would dump all the selected to the screen w/out formatting -->
         </div>
-    </div>
-        <div class="container ptb">
+    </div>    
+        <div class="container ptb" id="pdr">
             <div class="row">
                 <h2 class="centered mb">Project Description & Results.</h2>
                 <div class="col-md-4">
@@ -157,17 +185,17 @@
 
         </div><!--/.container-->
 
-        <div id="g">
+       <!-- <div id="g">
             <div class="container">
                 <div class="row centered">
                     <h2>Robert - Coder Foundry CEO.</h2>
                     <div class="col-md-8 col-md-offset-2">
                         <p>Working with Jamie was a breeze. He understood what we wanted, worked within our practice guidelines and delivery was quick - complete with API documentation for those who follow!.</p>
 
-                    </div><!--/col-md-8-->
-                </div><!--/row-->
-            </div><!--/.container-->
-        </div>
+                    </div>
+                </div> /row
+            </div>/.container
+        </div>-->
 
         <div id="f">
             <div class="container">

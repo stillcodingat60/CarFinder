@@ -15,6 +15,7 @@
         }
         scope.cars = []
         scope.id = '';
+        scope.results = [];
 
         scope.open = function (id) {
             //console.log("Id in open "+id)             
@@ -94,7 +95,8 @@
         var scope = this;
         scope.n = 0;
         scope.car = car;
-
+        scope.results = car.recalls.Results;
+        
         scope.ok = function () {
             $uibModalInstance.close();
         };
