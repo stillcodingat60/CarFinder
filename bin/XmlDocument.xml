@@ -486,43 +486,60 @@
             GetAllYears returns DISTINCT values related to the CarFinder dataset
             </summary>
             <returns>
+            SQL Server Stored Procedure
             No params required
             Returns only the Year (YYYY) in string format
-            Simple
+            Simple SQL call via DISTINCT to populate the YEAR pull down
+            Uses HttpPost method.
             </returns>
             
         </member>
         <member name="M:CarFinder.Controllers.CarController.GetMakesbyYear(CarFinder.Controllers.CarController.Selected)">
             <summary>
-            Get Makes By Year, return the entire class Car
+            Get Makes By Year, returns the string variable MAKE
             </summary>
-            <param name="year"></param>
+            <param name="selected">
+            Class "Selected"
+            </param>
             <returns>
-            Get all makes for a particular car make by model year. takes a single param, string year.
+            SQL Server Stored Procedure
+            Get all makes for a particular car make by model year. 
+            Takes a single param, string year and returns the string MAKE. 
+            Used to populate the MAKE pull down. 
+            Uses HttpPost method.
             </returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetModelsbyYearMake(CarFinder.Controllers.CarController.Selected)" -->
         <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetTrims(CarFinder.Controllers.CarController.Selected)" -->
-        <member name="M:CarFinder.Controllers.CarController.GetCarsbyYear(System.String)">
-            <summary>
-            Get Cars by Year
-            </summary>
-            <param name="year"></param>
-            <returns>
-            Get Cars By Year takes Year as a param and returns the entire class  of Car.
-            </returns>
-        </member>
-        <member name="M:CarFinder.Controllers.CarController.GetCarsbyYearMake(System.String,System.String)">
-            <summary>
-            Get Cars by Year and Make
-            </summary>
-            <param name="year"></param>
-            <param name="make"></param>
-            <returns>
-            Get Cars by Year and Make takes Year and Make as params and returns the entire class of Car.  
-            </returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.GetCarsbyYMM(System.String,System.String,System.String)" -->
         <!-- Badly formed XML comment ignored for member "M:CarFinder.Controllers.CarController.getCars(CarFinder.Controllers.CarController.Selected)" -->
+        <member name="M:CarFinder.Controllers.CarController.getCar(CarFinder.Controllers.CarController.IdParam)">
+            <summary>
+            getCar calls the NHTSA and Bing APIs
+            </summary>
+            <param name="Id"></param>
+            <returns>
+            SQL Server Stored Procedure.
+            getCar returns a single instance of the Car Class plus calls the NHTSA and Bing APIs to retrieve recall data and an image.
+            getCar is passed an object, class IdParam.
+            Uses HttpPost method.
+            </returns>
+        </member>
+        <member name="T:CarFinder.Controllers.CarController.Selected">
+            <summary>
+            The Selected Class is the class used to pass variable values to the SQL Queries. It consists of
+            four strings, year, make, model, and trim.
+            </summary>
+            <returns>
+            Class Object 
+            
+            </returns>
+        </member>
+        <member name="M:CarFinder.Controllers.ProductController.GetProduct">
+            <summary>
+            GetProduct is a staging / test controller that is currently unused.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Bing.BingSearchContainer.Composite(System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             </summary>

@@ -262,6 +262,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\XmlDocument.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\TestClient.css" />
     <Content Include="assets\css\bootstrap.css" />
@@ -305,16 +306,22 @@
     <Content Include="assets\css\trNgGrid.min.css" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\img\1967_MG_MGB_GT_British_Racing_Green_001.jpg" />
     <Content Include="assets\img\CF.png" />
     <Content Include="assets\img\client1.png" />
     <Content Include="assets\img\client2.png" />
     <Content Include="assets\img\client3.png" />
     <Content Include="assets\img\client4.png" />
     <Content Include="assets\img\client5.png" />
+    <Content Include="assets\img\exotic-cars-15.jpg" />
     <Content Include="assets\img\header-2.jpg" />
     <Content Include="assets\img\header.jpg" />
+    <Content Include="assets\img\images.jpg" />
     <Content Include="assets\img\items.png" />
     <Content Include="assets\img\logoclient.png" />
+    <Content Include="assets\img\Mgb_gt.jpg" />
+    <Content Include="assets\img\Mini-Cooper-2000-hd.jpg" />
+    <Content Include="assets\img\no-image-available.png" />
     <Content Include="assets\img\portfolio\portfolio_01.jpg" />
     <Content Include="assets\img\portfolio\portfolio_02.jpg" />
     <Content Include="assets\img\portfolio\portfolio_03.jpg" />
@@ -406,10 +413,8 @@
     <Content Include="Index.html" />
     <Content Include="jmm\app.js" />
     <Content Include="jmm\carFinderCntl.js" />
-    <Content Include="jmm\carFinderTest.html" />
     <Content Include="jmm\carSvc.js" />
     <Content Include="jmm\fakeSvc.js" />
-    <Content Include="jmm\jmmCntrl.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -488,6 +493,8 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <None Include="Properties\PublishProfiles\jmcconnell.pubxml" />
+    <None Include="Properties\PublishProfiles\jmcconnellCarFinder.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1268,9 +1275,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

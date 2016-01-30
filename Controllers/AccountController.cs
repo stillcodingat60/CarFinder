@@ -16,16 +16,18 @@ using Microsoft.Owin.Security.OAuth;
 using CarFinder.Models;
 using CarFinder.Providers;
 using CarFinder.Results;
+using System.Web.Http.Description;
 
 namespace CarFinder.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
+        
         public AccountController()
         {
         }

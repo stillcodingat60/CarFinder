@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tic, Tac, Toe</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style2.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container" ng-app="jmmApp">
+        <div class="row centered">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4" ng-controller="jmmCntrl as ttt">
+                <div class="row" id="row1">
+                    <div class="col-sm-4 ttt1" id="r1c1">
+                        <button ng-click="ttt.move(0)" >
+                            <p>{{ttt.arr[0]}}</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-4 ttt1" id="r1c2">
+                        <button ng-click="ttt.move(1)">
+                            <p>{{ttt.arr[1]}}</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-4 ttt1" id="r1c3">
+                        <button ng-click="ttt.move(2)">
+                            <p>{{ttt.arr[2]}}</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="row" id="row2">
+                    <div class="col-sm-4 ttt1" id="r2c1">
+                        <button ng-click="ttt.move(3)">
+                            <p>{{ttt.arr[3]}}</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-4 ttt1" id="r2c2">
+                        <button ng-click="ttt.move(4)">
+                            <p>{{ttt.arr[4]}}</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-4 ttt1" id="r2c3">
+                        <button ng-click="ttt.move(5)">
+                            <p>{{ttt.arr[5]}}</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="row" id="row3">
+                    <div class="col-sm-4 ttt1">
+                        <button ng-click="ttt.move(6)">
+                            <p>{{ttt.arr[6]}}</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-4 ttt1">
+                        <button ng-click="ttt.move(7)">
+                            <p>{{ttt.arr[7]}}</p>
+                        </button>
+                    </div>
+                    <div class="col-sm-4 ttt1">
+                        <button ng-click="ttt.move(8)">
+                            <p>{{ttt.arr[8]}}</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+
+        </div>
+    </div>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="jmm/app.js"></script>
+    <script src="jmm/jmmCntrl.js"></script>
+</body>
+</html>

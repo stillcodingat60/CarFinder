@@ -24,6 +24,11 @@ namespace CarFinder.Controllers
         //    return products;
         //}
 
+        /// <summary>
+        /// GetProduct is a staging / test controller that is currently unused.
+        /// </summary>
+        /// <returns></returns>
+
         public IHttpActionResult GetProduct() //(int id)
         {
             
